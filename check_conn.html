@@ -1,0 +1,47 @@
+
+    <script src="assets/offline/offline.min.js"></script>
+
+<!--
+  choose any theme by uncomment
+Themes:
+<link rel="stylesheet" href="./themes/offline-theme-default.css" />
+<link rel="stylesheet" href="./themes/offline-theme-default-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-slide.css" />
+<link rel="stylesheet" href="./themes/offline-theme-slide-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-chrome.css" />
+<link rel="stylesheet" href="./themes/offline-theme-chrome-indicator.css" />
+<link rel="stylesheet" href="./themes/offline-theme-hubspot.css" />
+<link rel="stylesheet" href="./themes/offline-theme-dark.css" />
+-->
+
+<link rel="stylesheet" href="assets/offline/themes/offline-theme-dark.css" />
+<link rel="stylesheet" href="assets/offline/themes/offline-language-english.css" />
+
+<script src="assets/offline/js/snake.js"></script>
+
+<script>
+var run = function(){
+  var req = new XMLHttpRequest();
+  req.timeout = 5000;
+  req.open('GET', 'http://localhost/admin/index.php', true); //changle to your site's link
+  req.send();
+}
+
+setInterval(run, 3000);
+</script>
+<script>
+Offline.options = {
+  game: false
+  
+}
+Offline.options={
+    checkOnLoad: true,
+    interceptRequests: true,
+}
+
+var run = function(){
+  if (Offline.state === 'up')
+    Offline.check();
+}
+setInterval(run, 5000);
+</script>

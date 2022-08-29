@@ -1,0 +1,37 @@
+
+    <script src="offline/offline.min.js"></script>
+
+
+<link rel="stylesheet" href="offline/themes/offline-theme-dark.css" />
+<link rel="stylesheet" href="offline/themes/offline-language-english.css" />
+
+<script src="offline/js/snake.js"></script>
+
+<script>
+
+
+var run = function(){
+  var req = new XMLHttpRequest();
+  req.timeout = 5000;
+  req.open('GET', 'http://localhost/admin/user-admin/admin-dashboard.php', true);
+  req.send();
+}
+
+setInterval(run, 3000);
+</script>
+<script>
+Offline.options = {
+  game: false
+  
+}
+Offline.options={
+    checkOnLoad: true,
+    interceptRequests: true,
+}
+
+var run = function(){
+  if (Offline.state === 'up')
+    Offline.check();
+}
+setInterval(run, 5000);
+</script>
